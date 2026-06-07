@@ -200,3 +200,19 @@
  }
 
  .validationError {font-size: 0.9rem; color: red; margin-top: 4px;}
+
+
+.btn-advance {
+    margin-top: 6px;
+    padding: 4px 10px;
+    background-color: #1f3a5f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+.btn-advance:hover {
+    background-color: #f0ad4e;
+}
