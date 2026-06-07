@@ -103,6 +103,11 @@
                 <div th:each="task : ${user.tasks.?[status.name() == 'INPROGRESS']}">
                     <div class="task-item inprogress">
                         <div class="task-desc" th:text="${task.description}">Descripción de la tarea...</div>
+                        <!--- Boton de avanzar --->
+                        <form th:action="@{/user/tasks/advance}" method="post">
+                            <input type="hidden" name="taskId" th:value="${task.id}" />
+                            <button type="submit" class="btn-advance"> Avanzar >>> </button>
+                        </form>
                     </div>
                 </div>
             </section>
