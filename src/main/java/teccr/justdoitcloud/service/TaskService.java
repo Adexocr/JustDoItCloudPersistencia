@@ -7,7 +7,18 @@ import teccr.justdoitcloud.repository.TaskRepository;
 
 import java.util.List;
 
+public void advanceTaskStatus (Long taskId) {
+    Task task = taskRepository.findbyId(taskId);
 
+
+    Task.Status newStatus = switch (task.getStatus()){
+        case PENDING -> Task.Status.INPROGRESS;
+        case INPROGRESS -> Task.Status.DONE;
+        default -> task.getStatus();
+    };
+    task.setStatus(newStatus);
+    taskRepository.save(task);
+}
 
 @Service
 public class TaskService {
