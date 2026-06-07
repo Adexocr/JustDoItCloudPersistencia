@@ -34,8 +34,14 @@ public class UserTasksController {
         }
 
         return "usertasks";
-    }
 
+
+    }
+    @PostMapping("/advance")
+    public String advanceTask(@RequestParam Long taskId){
+        taskService.advanceTaskStatus(taskId);
+        return "redirect:/user/tasks";
+    }
     @PostMapping
     public String addTask(@Valid @ModelAttribute(name = "newTask") Task newTask,
                           Errors errors,
